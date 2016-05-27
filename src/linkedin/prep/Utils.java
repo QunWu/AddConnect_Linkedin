@@ -13,7 +13,7 @@ public class Utils {
 	public static final int GENERIC_ADD_CONNECT_STOP_POINT = 1150;
 	public static final String HOME_URL = "https://www.linkedin.com/";
 	
-	private static final String DRIVER_PATH = "S:/WorkSpaces/AddConnect_Linkedin/lib/chromedriver.exe";
+	private static final String DRIVER_PATH = "Yout path to chromedriver.exe";
 	
 	public static final String[] KEYWORDS_TO_DISMISS_CONNECT = {"student","school","university",
         "seeking","looking","college","graduate","grad","master","phd","ph.d","ms","m.s"};
