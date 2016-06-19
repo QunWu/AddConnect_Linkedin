@@ -4,7 +4,7 @@ import linkedin.exceptions.InvalidUpperBoundException;
 import linkedin.pageobject.AddConnectsPage;
 import linkedin.prep.Utils;
 
-public class AddConnect extends Thread {
+public class GenericAddConnect extends Thread {
 	private AddConnectsPage addConnectsPage = null;
 	private boolean needToContinue = true;
 	private int total = 0;
@@ -12,7 +12,7 @@ public class AddConnect extends Thread {
 	private int upperBound = 0;
 	private Utils utils = null;
 	
-	public AddConnect(AddConnectsPage addConnectsPage, Utils utils) {
+	public GenericAddConnect(AddConnectsPage addConnectsPage, Utils utils) {
 		this.addConnectsPage = addConnectsPage;
 		this.utils = utils;
 		this.upperBound = addConnectsPage.numberOfPeopleCard();
@@ -43,7 +43,7 @@ public class AddConnect extends Thread {
 			}
 		}
 
-		System.out.println("line 40, The total is : " + total);
-		this.utils.quit();
+		System.out.println("GenericAddConect - 40: total added is "+total);
+		this.utils.quitGenericAddConnect();
 	}
 }

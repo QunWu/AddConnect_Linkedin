@@ -7,38 +7,67 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utils {
 	
-	public static final String EMAIL="Your_Email_Account";
+	public static final String EMAIL="Your Linkedin Email Account";
 	public static final String PWD = "Your Password";
 	
 	public static final int GENERIC_ADD_CONNECT_STOP_POINT = 1150;
+	public static final int ADD_CONNECT_BY_COMPANY_STOP_POINT = 1000;
 	public static final String HOME_URL = "https://www.linkedin.com/";
 	
-	private static final String DRIVER_PATH = "Yout path to chromedriver.exe";
+	private static final String DRIVER_PATH = "C:/Users/Qun Wu/Documents/GitHub/AddConnect_Linkedin/lib/chromedriver.exe";
 	
-	public static final String[] KEYWORDS_TO_DISMISS_CONNECT = {"student","school","university",
+	public static final String[] KEYWORDS_TO_DISMISS_CONNECT_GENERIC_ADD_CONNECT = {"student","school","university","seek","look",
         "seeking","looking","college","graduate","grad","master","phd","ph.d","ms","m.s"};
 	
-	private WebDriver driver = null;
-	private WebDriverWait wait = null;
+	public static final String[] POSITIONS_FILTER_TO_ADD_CONNECT_BY_COMPANY = {"bay area","san francisco"};
+	
+	public static final String[] COMPANIES_LIST = {"google","facebook","ebay","twitter","linkedin"};
+	
+	public static final String CONNECT_BTN_TEXT_BY_COMPANY = "connect";
+	
+	private WebDriver driver_GenericAddConnect = null;
+	private WebDriverWait wait_GenericAddConnect = null;
+	
+	private WebDriver driver_AddConnectByCompany = null;
+	private WebDriverWait wait_AddConnectByCompany = null;
 	
 	public Utils(){
 		System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
-		driver = new ChromeDriver();
-		
-		wait = new WebDriverWait(driver, 10);
 	}
 	
-	public WebDriver getWebDriver(){
-		return driver;
+	public WebDriver getGenericAddConnectWebDriver(){
+		if(driver_GenericAddConnect == null)
+			driver_GenericAddConnect = new ChromeDriver();
+		return driver_GenericAddConnect;
 	}
 	
-	public WebDriverWait getWebDriverWait(){
-		return wait;
+	public WebDriverWait getGenericAddConnectWebDriverWait(){
+		if(wait_GenericAddConnect == null&&driver_GenericAddConnect != null)
+			wait_GenericAddConnect = new WebDriverWait(driver_GenericAddConnect, 10);
+		return wait_GenericAddConnect;
 	}
 	
-	public void quit(){
-		wait=null;
-		driver.close();
-		driver.quit();
+	public WebDriver getAddConnectByCompanyWebDriver(){
+		if(driver_AddConnectByCompany == null)
+			driver_AddConnectByCompany = new ChromeDriver();
+		return driver_AddConnectByCompany;
+	}
+	
+	public WebDriverWait getAddConnectByCompanyWebDriverWait(){
+		if(wait_AddConnectByCompany == null &&driver_AddConnectByCompany != null)
+			wait_AddConnectByCompany =new WebDriverWait(driver_AddConnectByCompany, 10);
+		return wait_AddConnectByCompany;
+	}
+	
+	public void quitGenericAddConnect(){
+		wait_GenericAddConnect=null;
+		driver_GenericAddConnect.close();
+		driver_GenericAddConnect.quit();
+	}
+	
+	public void quitAddConnectByCompany(){
+		wait_GenericAddConnect=null;
+		driver_GenericAddConnect.close();
+		driver_GenericAddConnect.quit();
 	}
 }
