@@ -1,5 +1,6 @@
 package linkedin.pageobject;
 
+import linkedin.pageobject.composition.MainSiteNav;
 import linkedin.pageobject.composition.MsgNavigationBar;
 import linkedin.pageobject.composition.SearchHeader;
 import linkedin.pageobject.locator.HomePageLocator;
@@ -13,6 +14,7 @@ public class HomePage extends HomePageLocator{
 	
 	SearchHeader searchHeader = null;
 	MsgNavigationBar msgNvgBar = null;
+	MainSiteNav mainSiteNav = null;
 	
 	public HomePage(WebDriver driver, WebDriverWait wait){
 		this.driver = driver;
@@ -20,6 +22,7 @@ public class HomePage extends HomePageLocator{
 		
 		searchHeader = new SearchHeader(driver,wait);
 		msgNvgBar = new MsgNavigationBar(driver,wait);
+		mainSiteNav = new MainSiteNav(driver,wait);
 	}
 
 	public AddConnectsPage clickAddConnectLink(){
@@ -28,5 +31,9 @@ public class HomePage extends HomePageLocator{
 	
 	public PeopleByCompanyPage searchPeopleByCompany(String companyName){
 		return this.searchHeader.searchPeopleByCompanyTemplate(companyName);
+	}
+	
+	public ConnectionsPage getConnectionsPage(){
+		return mainSiteNav.clickConnections();
 	}
 }
