@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utils {
 	
-	public static final String EMAIL="wuqun597090371@hotmail.com";
-	public static final String PWD = "Shifang-199288";
+	public static final String EMAIL="Your account";
+	public static final String PWD = "Your PWD for account";
 	
 	public static final int GENERIC_ADD_CONNECT_STOP_POINT = 1150;
 	public static final int ADD_CONNECT_BY_COMPANY_STOP_POINT = 1000;
